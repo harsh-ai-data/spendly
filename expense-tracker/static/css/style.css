@@ -507,6 +507,22 @@ a { color: inherit; text-decoration: none; }
     color: var(--ink-faint);
 }
 
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+}
+
+.footer-links a {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--paper); }
+
 /* ------------------------------------------------------------------ */
 /* Legal pages (Terms, Privacy)                                        */
 /* ------------------------------------------------------------------ */
@@ -575,10 +591,148 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ------------------------------------------------------------------ */
+/* Privacy Policy document layout                                      */
+/* ------------------------------------------------------------------ */
+
+.privacy-layout {
+    background: var(--paper-warm);
+    padding: 3rem 2rem 6rem;
+}
+
+.privacy-layout-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Sticky table of contents */
+.privacy-toc {
+    position: sticky;
+    top: 80px;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+}
+
+.privacy-toc-title {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 1rem;
+}
+
+.privacy-toc ol {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.privacy-toc ol li a {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    padding: 0.3rem 0.4rem;
+    border-radius: var(--radius-sm);
+    line-height: 1.4;
+    transition: background 0.15s, color 0.15s;
+}
+
+.privacy-toc ol li a:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+/* Document body */
+.privacy-doc {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 3rem 3.5rem;
+}
+
+.privacy-section {
+    padding-top: 2.5rem;
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--border-soft);
+}
+
+.privacy-section:first-child {
+    padding-top: 0;
+    margin-top: 0;
+    border-top: none;
+}
+
+.privacy-section-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+}
+
+.privacy-section-num {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+}
+
+/* Individual clause */
+.clause {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0;
+    margin-bottom: 0.9rem;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+}
+
+.clause-num {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--ink-faint);
+    padding-top: 0.18rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.clause-text {
+    color: var(--ink-soft);
+}
+
+.clause-text strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ */
 /* Responsive                                                          */
 /* ------------------------------------------------------------------ */
 
 @media (max-width: 900px) {
+    .privacy-layout-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .privacy-toc { display: none; }
+
+    .privacy-doc { padding: 2rem 1.5rem; }
+
     .hero {
         grid-template-columns: 1fr;
         text-align: center;
